@@ -1610,6 +1610,7 @@ class AzureRMAuth(object):
                 except Exception as e:
                     self.fail("cloud_environment {0} could not be resolved: {1}".format(cloud_environment, e.message), exception=traceback.format_exc())
 
+        print(client_id, cloud_environment)
         credentials = MSIAuthentication(client_id=client_id, cloud_environment=cloud_environment)
         credential = MSIAuthenticationWrapper(client_id=client_id, cloud_environment=cloud_environment)
         subscription_id = subscription_id or self._get_env('subscription_id')
